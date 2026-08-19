@@ -1,0 +1,27 @@
+@if (isLoading()) { <p class="state-message">Loading...</p> }
+@if (errorMessage()) { <p class="state-message error">{{ errorMessage() }}</p> }
+@if (!isLoading() && !errorMessage() && products().length === 0) { <p class="state-message">No products.</p> }
+@if (!isLoading() && !errorMessage() && products().length > 0) {
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Brand</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products(); track product._id || product.pid) {
+      <tr>
+        <td>{{ product.pid }}</td>
+        <td>{{ product.pname }}</td>
+        <td>{{ product.price | number: '1.0-0' }}</td>
+        <td>{{ product.brand }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+}

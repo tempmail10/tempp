@@ -1,0 +1,21 @@
+.main-container {
+  width: 90%;
+  margin: 30px auto;
+}
+.nav-bar {
+  border: 1px solid #999;
+  padding: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.nav-bar a {
+  margin: 0 25px;
+  color: blue;
+  text-decoration: underline;
+  font-size: 20px;
+  cursor: pointer;
+}
+.content-box {
+  border: 1px solid #999;
+  padding: 35px;
+}

@@ -1,0 +1,31 @@
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" novalidate>
+  <div class="form-group">
+    <label>ID</label>
+    <input type="number" name="pid" [(ngModel)]="product.pid" required min="1" #pid="ngModel" />
+    @if (pid.invalid && pid.touched) { <small>Enter a valid ID.</small> }
+  </div>
+
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="pname" [(ngModel)]="product.pname" required minlength="2" #pname="ngModel" />
+    @if (pname.invalid && pname.touched) { <small>Enter a product name.</small> }
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <input type="number" name="price" [(ngModel)]="product.price" required min="1" #price="ngModel" />
+    @if (price.invalid && price.touched) { <small>Enter a price.</small> }
+  </div>
+
+  <div class="form-group">
+    <label>Brand</label>
+    <input type="text" name="brand" [(ngModel)]="product.brand" required #brand="ngModel" />
+    @if (brand.invalid && brand.touched) { <small>Enter a brand.</small> }
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" [disabled]="productForm.invalid || isSubmitting">
+      {{ isSubmitting ? 'Saving...' : 'Add product' }}
+    </button>
+  </div>
+</form>
